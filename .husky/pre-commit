@@ -1,4 +1,4 @@
-bun run --bun lint-staged
+bun run --bun lint-staged --concurrent false
 bun run format:check
 bun run lint
 bun run type:check
