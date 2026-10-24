@@ -9,6 +9,7 @@
     "format": "bun run --bun prettier --write .",
     "format:check": "bun run --bun prettier --check .",
     "lint": "bun run --bun eslint",
+    "prepare": "husky",
     "start": "bun run --bun next start",
     "type:check": "bun run --bun tsc --noEmit"
   },
@@ -26,8 +27,17 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "eslint-plugin-simple-import-sort": "^14.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{css,json,md}": "bun run --bun prettier --write",
+    "*.{js,mjs,ts,tsx}": [
+      "bun run --bun prettier --write",
+      "bun run --bun eslint --fix"
+    ]
   }
 }
