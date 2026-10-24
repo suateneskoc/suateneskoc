@@ -4,7 +4,7 @@ const lintStagedConfig = {
     "bun run --bun prettier --write",
     "bun run --bun eslint --fix",
   ],
-  "*": () => "bun run knip",
+  "*": () => ["bun run knip", "bun run build"],
 };
 
 export default lintStagedConfig;
