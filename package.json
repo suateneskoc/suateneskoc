@@ -5,6 +5,7 @@
   "packageManager": "bun@1.4.0",
   "scripts": {
     "build": "bun run --bun next build",
+    "clean": "bun run --bun rimraf .next out dist coverage",
     "dev": "bun run --bun next dev",
     "env:pull": "([ -f .vercel/project.json ] || bun run --bun vercel link) && bun run --bun vercel env pull .env.local",
     "format": "bun run --bun prettier --write .",
@@ -37,6 +38,7 @@
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "rimraf": "^6.1.3",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vercel": "^65.2.0"
