@@ -7,3 +7,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Project instructions
+
+- Use Bun and existing package scripts; keep scripts and configuration entries alphabetized.
+- Run `bun run check:fast` during iteration and `bun run check:all` before handoff when practical.
+- Follow [docs/source-layout.md](docs/source-layout.md); link new documentation from [docs/README.md](docs/README.md).
+- Record significant technical decisions in `docs/decisions/`.
+- Do not edit generated files or directories: `.next/`, `.vercel/`, `node_modules/`, `out/`, or `next-env.d.ts`.
