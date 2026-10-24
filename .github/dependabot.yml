@@ -1,0 +1,92 @@
+version: 2
+
+updates:
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:00"
+      timezone: Europe/Istanbul
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      developer-workflow:
+        patterns:
+          - husky
+          - knip
+          - lint-staged
+          - rimraf
+        update-types:
+          - minor
+          - patch
+      eslint:
+        patterns:
+          - "eslint*"
+        exclude-patterns:
+          - eslint-config-next
+        update-types:
+          - minor
+          - patch
+      formatting:
+        patterns:
+          - prettier
+          - prettier-plugin-tailwindcss
+        update-types:
+          - minor
+          - patch
+      next-react:
+        patterns:
+          - "@next/*"
+          - "@types/react"
+          - "@types/react-dom"
+          - babel-plugin-react-compiler
+          - eslint-config-next
+          - next
+          - react
+          - react-dom
+        update-types:
+          - minor
+          - patch
+      tailwind:
+        patterns:
+          - "@tailwindcss/*"
+          - tailwindcss
+        update-types:
+          - minor
+          - patch
+      types:
+        patterns:
+          - "@types/*"
+          - typescript
+        exclude-patterns:
+          - "@types/react"
+          - "@types/react-dom"
+        update-types:
+          - minor
+          - patch
+      vercel:
+        patterns:
+          - "@vercel/*"
+          - vercel
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:00"
+      timezone: Europe/Istanbul
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      github-actions:
+        patterns:
+          - "*"
