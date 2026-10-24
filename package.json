@@ -13,6 +13,7 @@
     "lint": "bun run --bun eslint --max-warnings=0",
     "knip": "bunx --bun knip --no-progress",
     "prepare": "husky",
+    "reinstall": "bun run --bun rimraf node_modules && bun install --frozen-lockfile",
     "start": "bun run --bun next start",
     "type:check": "bun run --bun tsc --noEmit"
   },
