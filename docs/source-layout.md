@@ -1,7 +1,18 @@
 # Source layout
 
-Application routes and route-specific files belong in `src/app/`. Shared code
-is organized by responsibility:
+Application routes and route-specific files belong in `src/app/`. The current
+source tree is intentionally small:
+
+```text
+src/
+├── app/
+│   ├── layout.tsx
+│   └── page.tsx
+└── styles/
+    └── globals.css
+```
+
+As shared code is introduced, organize it by responsibility:
 
 - `src/components/` — reusable UI components
 - `src/constants/` — shared application constants

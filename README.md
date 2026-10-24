@@ -1,10 +1,11 @@
 # Suate Nes Koc
 
-Next.js application using the App Router, Tailwind CSS, and Bun.
+Personal blog built with Next.js, React, Tailwind CSS, and Bun.
 
-## Development
+## Quick start
 
 ```bash
+bun install --frozen-lockfile
 bun run dev
 ```
 
@@ -12,5 +13,5 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Documentation
 
-- [Documentation index](docs/README.md)
-- [Source layout](docs/source-layout.md)
+Read the [documentation index](docs/README.md) for deployment and source-layout
+guidance.
