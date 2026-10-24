@@ -1,11 +1,11 @@
 # Suate Nes Koc
 
-Next.js application using the App Router and Tailwind CSS.
+Next.js application using the App Router, Tailwind CSS, and Bun.
 
 ## Development
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
