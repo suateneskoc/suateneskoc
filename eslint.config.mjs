@@ -16,7 +16,38 @@ const eslintConfig = defineConfig([
     },
     rules: {
       "simple-import-sort/exports": "error",
-      "simple-import-sort/imports": "error",
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [
+            // Next boundary markers.
+            ["^\\u0000client-only$", "^\\u0000server-only$"],
+
+            // Bun imports.
+            ["^bun$", "^bun/"],
+
+            // Node.js builtins.
+            [
+              "^node:|^(assert|buffer|child_process|crypto|fs|http|https|os|path|stream|url|util|zlib)(/.*|$)",
+            ],
+
+            // React and Next.js core.
+            ["^react$", "^react/", "^next$", "^next/"],
+
+            // Other external packages.
+            ["^@?\\w"],
+
+            // Absolute imports.
+            ["^@/"],
+
+            // Relative imports.
+            ["^\\.\\.(?!/?$)", "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+
+            // Side-effect imports, including CSS.
+            ["^\\u0000", "^.+\\.s?css$"],
+          ],
+        },
+      ],
     },
     settings: {
       "import-x/resolver-next": [
