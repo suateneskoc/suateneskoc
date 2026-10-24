@@ -1,5 +1,5 @@
 const lintStagedConfig = {
-  "*.{css,json,md}": "bun run --bun prettier --write",
+  "*.{css,json,md,yaml,yml}": "bun run --bun prettier --write",
   "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}": [
     "bun run --bun prettier --write",
     "bun run --bun eslint --fix",
