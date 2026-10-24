@@ -8,13 +8,26 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  importX.flatConfigs.recommended,
-  importX.flatConfigs.typescript,
   {
+    linterOptions: {
+      reportUnusedDisableDirectives: "error",
+    },
+  },
+  {
+    ...importX.flatConfigs.recommended,
+    files: ["src/**/*.{js,jsx,ts,tsx}"],
+  },
+  {
+    ...importX.flatConfigs.typescript,
+    files: ["src/**/*.{js,jsx,ts,tsx}"],
+  },
+  {
+    files: ["src/**/*.{js,jsx,ts,tsx}"],
     plugins: {
       "simple-import-sort": simpleImportSort,
     },
     rules: {
+      "import/no-anonymous-default-export": "off",
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": [
         "error",
@@ -62,9 +75,12 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
-    "out/**",
+    ".vercel/**",
     "build/**",
+    "coverage/**",
+    "dist/**",
     "next-env.d.ts",
+    "out/**",
   ]),
 ]);
 
