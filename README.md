@@ -9,3 +9,8 @@ bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Documentation
+
+- [Documentation index](docs/README.md)
+- [Source layout](docs/source-layout.md)
