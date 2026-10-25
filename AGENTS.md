@@ -16,6 +16,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Keep Playwright test files colocated with the source they cover as `*.spec.ts` files.
 - Use the project Playwright MCP configuration for browser-based UI validation.
 - Keep tests high-value and targeted; avoid redundant smoke and accessibility cases.
+- Keep component-specific class and style constants below the main component.
+- Add concise JSDoc to frequently used utilities and hooks to describe their purpose.
 - Record significant technical decisions in `docs/decisions/`.
 - Authentication uses Better Auth with PostgreSQL; follow `docs/authentication.md`
   and keep authorization checks server-side.

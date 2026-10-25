@@ -2,12 +2,9 @@ import Link from "next/link";
 
 import { GithubLogo, House } from "@phosphor-icons/react/ssr";
 
-import ThemeToggle from "./theme-toggle";
+import { DEFAULT_ICON_PROPS, ICON_CONTROL_CLASS_NAME } from "@/constants/icons";
 
-const iconProps = {
-  size: 20,
-  weight: "light" as const,
-};
+import ThemeToggle from "./theme-toggle";
 
 export default function SiteHeader() {
   return (
@@ -18,23 +15,23 @@ export default function SiteHeader() {
       >
         <Link
           aria-label="Home"
-          className="text-neutral-700 transition-colors hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-700 dark:text-neutral-200 dark:hover:text-white dark:focus-visible:outline-neutral-200"
+          className={ICON_CONTROL_CLASS_NAME}
           href="/"
           title="Home"
         >
-          <House {...iconProps} aria-hidden="true" />
+          <House {...DEFAULT_ICON_PROPS} aria-hidden="true" />
         </Link>
 
         <div className="flex items-center gap-2">
           <a
             aria-label="View source on GitHub"
-            className="text-neutral-700 transition-colors hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-700 dark:text-neutral-200 dark:hover:text-white dark:focus-visible:outline-neutral-200"
+            className={ICON_CONTROL_CLASS_NAME}
             href="https://github.com/suateneskoc/suateneskoc"
             rel="noreferrer"
             target="_blank"
             title="View source on GitHub"
           >
-            <GithubLogo {...iconProps} aria-hidden="true" />
+            <GithubLogo {...DEFAULT_ICON_PROPS} aria-hidden="true" />
           </a>
           <ThemeToggle />
         </div>

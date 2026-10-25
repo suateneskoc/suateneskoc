@@ -4,8 +4,10 @@ import { useSyncExternalStore } from "react";
 
 import { Monitor, Moon, Sun } from "@phosphor-icons/react";
 
+import { DEFAULT_ICON_PROPS, ICON_CONTROL_CLASS_NAME } from "@/constants/icons";
 import type { Theme } from "@/constants/theme";
 import { THEME_STORAGE_KEY, THEME_VALUES } from "@/constants/theme";
+import { cn } from "@/utils/cn";
 import { isTheme } from "@/utils/theme";
 
 const TRANSITION_DURATION = 200;
@@ -109,12 +111,12 @@ export default function ThemeToggle() {
   return (
     <button
       aria-label={label}
-      className="cursor-pointer text-neutral-700 transition-colors hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-700 dark:text-neutral-200 dark:hover:text-white dark:focus-visible:outline-neutral-200"
+      className={cn(["cursor-pointer", ICON_CONTROL_CLASS_NAME])}
       onClick={handleClick}
       title={label}
       type="button"
     >
-      <Icon aria-hidden="true" size={20} weight="light" />
+      <Icon {...DEFAULT_ICON_PROPS} aria-hidden="true" />
     </button>
   );
 }
