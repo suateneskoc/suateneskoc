@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  color-scheme: light;
+
+  --theme-dark-background: var(--color-neutral-900);
+  --theme-dark-border: var(--color-neutral-800);
+  --theme-dark-content: var(--color-neutral-100);
+  --theme-dark-muted: var(--color-neutral-400);
+  --theme-dark-surface: var(--color-neutral-950);
+  --theme-light-background: var(--color-neutral-100);
+  --theme-light-border: var(--color-neutral-200);
+  --theme-light-content: var(--color-neutral-900);
+  --theme-light-muted: var(--color-neutral-600);
+  --theme-light-surface: var(--color-white);
+
+  --background: var(--theme-light-background);
+  --border: var(--theme-light-border);
+  --content: var(--theme-light-content);
+  --muted: var(--theme-light-muted);
+  --surface: var(--theme-light-surface);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-border: var(--border);
+  --color-content: var(--content);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: var(--theme-dark-background);
+  --border: var(--theme-dark-border);
+  --content: var(--theme-dark-content);
+  --muted: var(--theme-dark-muted);
+  --surface: var(--theme-dark-surface);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--content);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-transition,
+  .theme-transition * {
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      fill 200ms ease,
+      stroke 200ms ease;
+  }
+}

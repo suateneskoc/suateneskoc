@@ -21,4 +21,34 @@ test.describe("homepage", () => {
 
     await expectPageToBeAccessible(page);
   });
+
+  test("applies a persisted light theme", async ({ page }) => {
+    await page.addInitScript((storageKey) => {
+      localStorage.setItem(storageKey, "light");
+    }, "root-theme");
+    await page.goto("/");
+
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  });
+
+  test("applies a persisted dark theme", async ({ page }) => {
+    await page.addInitScript((storageKey) => {
+      localStorage.setItem(storageKey, "dark");
+    }, "root-theme");
+    await page.goto("/");
+
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  });
+
+  test("uses the system theme when persisted mode is system", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
+    await page.addInitScript((storageKey) => {
+      localStorage.setItem(storageKey, "system");
+    }, "root-theme");
+    await page.goto("/");
+
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  });
 });
