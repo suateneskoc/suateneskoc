@@ -29,6 +29,7 @@ As shared code is introduced, organize it by responsibility:
 - `src/hooks/` — reusable React hooks
 - `src/server/` — server-only data access and services
 - `src/styles/` — global and shared styles
+- `src/testing/` — shared test helpers and fixtures
 - `src/types/` — shared TypeScript types
 - `src/utils/` — small, framework-agnostic utility functions
 
