@@ -21,6 +21,8 @@
     "prepare": "husky",
     "reinstall": "bun run --bun rimraf node_modules && bun install --frozen-lockfile",
     "start": "bun run --bun next start",
+    "test:e2e": "bun run --bun playwright test",
+    "test:e2e:ui": "bun run --bun playwright test --ui",
     "type:check": "bun run --bun tsc --noEmit"
   },
   "dependencies": {
@@ -36,6 +38,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
