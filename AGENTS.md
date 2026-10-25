@@ -16,3 +16,4 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Record significant technical decisions in `docs/decisions/`.
 - Do not edit generated files or directories: `.next/`, `.vercel/`, `node_modules/`, `out/`, or `next-env.d.ts`.
 - This repository is public: never commit secrets, environment files, private Vercel metadata, personal data, or proprietary assets.
+- Keystatic content is local and Git-versioned: follow [docs/keystatic.md](docs/keystatic.md), keep published content as the default, and run `bun run content:check` after content-schema changes.

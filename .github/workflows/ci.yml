@@ -41,6 +41,9 @@ jobs:
       - name: Check types
         run: bun run type:check
 
+      - name: Check content
+        run: bun run content:check
+
       - name: Check dependencies
         run: bun run knip
 

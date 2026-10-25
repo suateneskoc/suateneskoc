@@ -8,6 +8,11 @@ src/
 ├── app/
 │   ├── layout.tsx
 │   └── page.tsx
+├── content/
+│   └── posts/          # Keystatic-managed content
+├── server/
+│   └── content/        # Server-only content readers
+├── components/         # Reusable UI components
 └── styles/
     └── globals.css
 ```
@@ -15,6 +20,7 @@ src/
 As shared code is introduced, organize it by responsibility:
 
 - `src/components/` — reusable UI components
+- `src/content/` — content managed as part of the repository
 - `src/constants/` — shared application constants
 - `src/hooks/` — reusable React hooks
 - `src/server/` — server-only data access and services

@@ -1,3 +1,4 @@
 {
+  "entry": ["scripts/check-content.ts"],
   "ignoreDependencies": ["lint-staged", "rimraf", "vercel"]
 }
