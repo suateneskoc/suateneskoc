@@ -1,23 +1,16 @@
 # Source layout
 
-Application routes and route-specific files belong in `src/app/`. The current
-source tree is intentionally small:
+Application routes and route-specific files belong in `src/app/`:
 
 ```text
 src/
-├── app/
-│   ├── layout.tsx
-│   └── page.tsx
-├── auth/               # Authentication domain and browser client
-├── content/
-│   └── posts/          # Keystatic-managed content
-├── server/
-│   ├── auth/            # Better Auth configuration
-│   ├── content/         # Server-only content readers
-│   └── database/        # Server-only database clients
-├── components/         # Reusable UI components
-└── styles/
-    └── globals.css
+├── app/                 # Routes and route-specific files
+├── auth/                # Authentication domain and browser client
+├── content/             # Keystatic-managed content
+├── server/              # Server-only services and data access
+├── styles/              # Global and shared styles
+├── testing/             # Shared test helpers
+└── types/               # Shared TypeScript types
 ```
 
 As shared code is introduced, organize it by responsibility:
