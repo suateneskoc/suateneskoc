@@ -24,6 +24,10 @@ bun run env:pull
 
 The command writes to `.env.local`, which must remain uncommitted.
 
+When adding an environment variable, define and validate it in `src/env.ts`.
+Keep secrets in the server schema; only variables prefixed with
+`NEXT_PUBLIC_` belong in the client schema.
+
 ## Verification
 
 The CI workflow runs formatting, ESLint, TypeScript, Knip, and the production
