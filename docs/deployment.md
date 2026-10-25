@@ -28,6 +28,9 @@ When adding an environment variable, define and validate it in `src/env.ts`.
 Keep secrets in the server schema; only variables prefixed with
 `NEXT_PUBLIC_` belong in the client schema.
 
+See [Authentication](authentication.md) for authentication setup and required
+environment variables.
+
 Keystatic uses local storage for authoring. Edit content locally at `/keystatic`,
 commit the generated files, and use Vercel preview deployments to review changes.
 The admin UI and API are disabled on Production deployments and enabled locally

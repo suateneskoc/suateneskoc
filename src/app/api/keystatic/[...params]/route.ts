@@ -1,6 +1,7 @@
 import { makeRouteHandler } from "@keystatic/next/route-handler";
 
-import { isKeystaticEnabled } from "@/server/keystatic/access";
+import { isAdminRequest } from "@/server/auth/access";
+import { isNonProductionEnvironment } from "@/server/environment";
 
 import config from "../../../../../keystatic.config";
 
@@ -10,14 +11,20 @@ function notFoundResponse() {
   return new Response(null, { status: 404 });
 }
 
-export function GET(request: Request) {
-  return isKeystaticEnabled()
-    ? handlers.GET(request)
-    : Promise.resolve(notFoundResponse());
+async function isAuthorized(request: Request) {
+  return (
+    isNonProductionEnvironment() && (await isAdminRequest(request.headers))
+  );
 }
 
-export function POST(request: Request) {
-  return isKeystaticEnabled()
+export async function GET(request: Request) {
+  return (await isAuthorized(request))
+    ? handlers.GET(request)
+    : notFoundResponse();
+}
+
+export async function POST(request: Request) {
+  return (await isAuthorized(request))
     ? handlers.POST(request)
-    : Promise.resolve(notFoundResponse());
+    : notFoundResponse();
 }

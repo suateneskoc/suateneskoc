@@ -1,6 +1,6 @@
 import "server-only";
 
-export function isKeystaticEnabled() {
+export function isNonProductionEnvironment() {
   if (process.env.NODE_ENV !== "production") {
     return true;
   }

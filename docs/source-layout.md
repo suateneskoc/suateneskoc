@@ -8,10 +8,13 @@ src/
 ├── app/
 │   ├── layout.tsx
 │   └── page.tsx
+├── auth/               # Authentication domain and browser client
 ├── content/
 │   └── posts/          # Keystatic-managed content
 ├── server/
-│   └── content/        # Server-only content readers
+│   ├── auth/            # Better Auth configuration
+│   ├── content/         # Server-only content readers
+│   └── database/        # Server-only database clients
 ├── components/         # Reusable UI components
 └── styles/
     └── globals.css
@@ -22,6 +25,7 @@ As shared code is introduced, organize it by responsibility:
 - `src/components/` — reusable UI components
 - `src/content/` — content managed as part of the repository
 - `src/constants/` — shared application constants
+- `src/auth/` — authentication domain code and browser-facing auth helpers
 - `src/hooks/` — reusable React hooks
 - `src/server/` — server-only data access and services
 - `src/styles/` — global and shared styles
