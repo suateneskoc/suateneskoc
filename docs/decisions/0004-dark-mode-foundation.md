@@ -19,6 +19,10 @@ theme-specific utilities. Keep component styling in JSX whenever practical;
 reserve global CSS for theme tokens, browser color-scheme metadata, and shared
 transitions.
 
+The public-site theme control cycles through `system`, `light`, and `dark` in
+that order. It persists the selected mode under `root-theme` and listens for
+system preference changes while `system` is active.
+
 ## Rationale
 
 This provides a consistent color vocabulary for new UI without adding a theme

@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 
+import { THEME_STORAGE_KEY } from "@/constants/theme";
 import { expectPageToBeAccessible } from "@/testing/accessibility";
 
 test.use({ storageState: { cookies: [], origins: [] } });
@@ -25,7 +26,7 @@ test.describe("homepage", () => {
   test("applies a persisted light theme", async ({ page }) => {
     await page.addInitScript((storageKey) => {
       localStorage.setItem(storageKey, "light");
-    }, "root-theme");
+    }, THEME_STORAGE_KEY);
     await page.goto("/");
 
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -34,7 +35,7 @@ test.describe("homepage", () => {
   test("applies a persisted dark theme", async ({ page }) => {
     await page.addInitScript((storageKey) => {
       localStorage.setItem(storageKey, "dark");
-    }, "root-theme");
+    }, THEME_STORAGE_KEY);
     await page.goto("/");
 
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
@@ -46,7 +47,7 @@ test.describe("homepage", () => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.addInitScript((storageKey) => {
       localStorage.setItem(storageKey, "system");
-    }, "root-theme");
+    }, THEME_STORAGE_KEY);
     await page.goto("/");
 
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");

@@ -6,6 +6,7 @@ Application routes and route-specific files belong in `src/app/`:
 src/
 ├── app/                 # Routes and route-specific files
 ├── auth/                # Authentication domain and browser client
+├── components/          # Reusable UI components
 ├── content/             # Keystatic-managed content
 ├── server/              # Server-only services and data access
 ├── styles/              # Global and shared styles
