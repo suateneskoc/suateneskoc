@@ -14,6 +14,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Run `bun run check:fast` during iteration and `bun run check:all` before handoff when practical.
 - Follow [docs/source-layout.md](docs/source-layout.md); link new documentation from [docs/README.md](docs/README.md).
 - Keep Playwright test files colocated with the source they cover as `*.spec.ts` files.
+- Use the project Playwright MCP configuration for browser-based UI validation.
 - Record significant technical decisions in `docs/decisions/`.
 - Authentication uses Better Auth with PostgreSQL; follow `docs/authentication.md`
   and keep authorization checks server-side.
