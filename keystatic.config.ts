@@ -3,7 +3,7 @@ import { collection, config, fields } from "@keystatic/core";
 export default config({
   collections: {
     posts: collection({
-      columns: ["title", "publishedAt", "draft"],
+      columns: ["title", "publishedAt", "updatedAt", "draft"],
       entryLayout: "content",
       format: { contentField: "content" },
       label: "Posts",
@@ -39,6 +39,10 @@ export default config({
             label: "Title",
             validation: { isRequired: true },
           },
+        }),
+        updatedAt: fields.datetime({
+          label: "Updated at",
+          validation: { isRequired: true },
         }),
       },
       slugField: "title",

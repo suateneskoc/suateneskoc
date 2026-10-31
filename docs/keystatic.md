@@ -14,7 +14,10 @@ Production. Preview storage is not durable; publishing happens through Git.
 
 Posts use the schema in `keystatic.config.ts` and are read server-side through
 `src/server/content/reader.ts`. Published content is the default; draft mode
-will explicitly opt into `includeDrafts: true`.
+will explicitly opt into `includeDrafts: true`. Maintain `updatedAt` whenever a
+post's meaningful content changes; it is used as the sitemap `lastmod` value.
+The sitemap publishes its calendar date only because Keystatic's datetime-local
+value does not include a timezone.
 
 Validate all posts with:
 

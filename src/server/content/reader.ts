@@ -42,6 +42,7 @@ async function getPostSummaries() {
     entry: {
       draft: entry.draft,
       title: entry.title,
+      updatedAt: entry.updatedAt,
     },
     slug,
   }));
