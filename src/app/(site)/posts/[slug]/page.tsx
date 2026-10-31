@@ -8,9 +8,10 @@ import type { Metadata } from "next";
 
 import {
   getPost,
-  getPostMetadata,
   getPostSlugs,
+  getSiteSettings,
 } from "@/server/content/reader";
+import { getPostMetadata } from "@/server/metadata";
 import type { PostPageProps } from "@/types/routes";
 
 export async function generateStaticParams() {
@@ -29,7 +30,9 @@ export async function generateMetadata({
     return {};
   }
 
-  return getPostMetadata(post);
+  const site = await getSiteSettings();
+
+  return getPostMetadata(post, site, slug);
 }
 
 export default async function PostPage({ params }: PostPageProps) {

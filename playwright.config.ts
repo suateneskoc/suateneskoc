@@ -3,7 +3,7 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   testDir: "./src",
-  testMatch: "**/*.spec.ts",
+  testMatch: "**/*.test.ts",
   reporter: "list",
   ...(process.env.CI ? { workers: 2 } : {}),
   use: {

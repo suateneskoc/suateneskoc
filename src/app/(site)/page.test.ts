@@ -15,6 +15,38 @@ test.describe("homepage", () => {
     ).toBeVisible();
   });
 
+  test("exposes site metadata", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page).toHaveTitle(/\S+/);
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+      "content",
+      /\S+/,
+    );
+    await expect(page.locator('meta[name="author"]')).toHaveAttribute(
+      "content",
+      /\S+/,
+    );
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      "http://localhost:3000",
+    );
+    await expect(page.locator('meta[property="og:type"]')).toHaveAttribute(
+      "content",
+      "website",
+    );
+    await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute(
+      "content",
+      /\S+/,
+    );
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+      "content",
+      "summary",
+    );
+    await expect(page.locator('meta[property="og:image"]')).toHaveCount(0);
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveCount(0);
+  });
+
   test("has no accessibility violations", async ({ page }) => {
     await page.goto("/");
 

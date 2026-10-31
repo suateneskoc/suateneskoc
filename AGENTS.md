@@ -13,7 +13,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Use Bun and existing package scripts; keep scripts and configuration entries alphabetized.
 - Run `bun run check:fast` during iteration and `bun run check:all` before handoff when practical.
 - Follow [docs/source-layout.md](docs/source-layout.md); link new documentation from [docs/README.md](docs/README.md).
-- Keep Playwright test files colocated with the source they cover as `*.spec.ts` files.
+- Keep Playwright test files colocated with the source they cover as `*.test.ts` files.
 - Use the project Playwright MCP configuration for browser-based UI validation.
 - Keep tests high-value and targeted; avoid redundant smoke and accessibility cases.
 - Keep component-specific class and style constants below the main component.

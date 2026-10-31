@@ -31,5 +31,5 @@ Keep utilities free of server- or client-specific behavior. Keep server-only
 code in `src/server/` and mark modules with `import "server-only"` when they
 must not be imported into client components.
 
-Colocate Playwright tests with the source they cover using `*.spec.ts` files.
+Colocate Playwright tests with the source they cover using `*.test.ts` files.
 Playwright discovers these files under `src/`.

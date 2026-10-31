@@ -48,6 +48,12 @@ async function getPostSummaries() {
   }));
 }
 
+export async function getSiteSettings() {
+  "use cache";
+
+  return reader.singletons.site.readOrThrow();
+}
+
 export async function getPost(
   slug: string,
   { includeDrafts = false }: ContentQueryOptions = {},
@@ -59,18 +65,6 @@ export async function getPost(
   }
 
   return post;
-}
-
-export function getPostMetadata(post: {
-  description: string;
-  metaDescription: string | null;
-  metaTitle: string | null;
-  title: string;
-}) {
-  return {
-    description: post.metaDescription || post.description,
-    title: post.metaTitle || post.title,
-  };
 }
 
 export async function getPostSlugs(options?: ContentQueryOptions) {

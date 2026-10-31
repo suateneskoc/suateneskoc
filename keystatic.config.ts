@@ -1,4 +1,4 @@
-import { collection, config, fields } from "@keystatic/core";
+import { collection, config, fields, singleton } from "@keystatic/core";
 
 export default config({
   collections: {
@@ -46,6 +46,27 @@ export default config({
         }),
       },
       slugField: "title",
+    }),
+  },
+  singletons: {
+    site: singleton({
+      label: "Site settings",
+      path: "src/content/site/",
+      schema: {
+        author: fields.text({
+          label: "Author",
+          validation: { isRequired: true },
+        }),
+        description: fields.text({
+          label: "Description",
+          multiline: true,
+          validation: { isRequired: true },
+        }),
+        name: fields.text({
+          label: "Site name",
+          validation: { isRequired: true },
+        }),
+      },
     }),
   },
   storage: {

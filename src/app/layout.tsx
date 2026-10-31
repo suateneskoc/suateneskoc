@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { THEME_STORAGE_KEY, THEME_VALUES } from "@/constants/theme";
+import { getSiteSettings } from "@/server/content/reader";
+import { getSiteUrl } from "@/server/site-url";
 
 import "@/styles/globals.css";
 
@@ -26,9 +28,36 @@ const themeScript = `
   })();
 `;
 
-export const metadata: Metadata = {
-  title: "Enes Koc",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSiteSettings();
+  const siteUrl = getSiteUrl();
+
+  return {
+    alternates: { canonical: "/" },
+    authors: [{ name: site.author }],
+    creator: site.author,
+    description: site.description,
+    metadataBase: new URL(siteUrl),
+    openGraph: {
+      description: site.description,
+      locale: "en_US",
+      siteName: site.name,
+      title: site.name,
+      type: "website",
+      url: siteUrl,
+    },
+    publisher: site.author,
+    title: {
+      default: site.name,
+      template: `%s | ${site.name}`,
+    },
+    twitter: {
+      card: "summary",
+      description: site.description,
+      title: site.name,
+    },
+  };
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

@@ -19,6 +19,10 @@ post's meaningful content changes; it is used as the sitemap `lastmod` value.
 The sitemap publishes its calendar date only because Keystatic's datetime-local
 value does not include a timezone.
 
+The `site` singleton at `src/content/site/` manages the site's name, author,
+and default metadata description. These values are used by the root layout and
+page-level SEO metadata.
+
 Validate all posts with:
 
 ```bash
