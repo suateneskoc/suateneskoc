@@ -48,3 +48,8 @@ instead of copying `.env.example` manually.
 
 Run `bun run check:fast` while developing and `bun run check:all` before
 handing off changes when practical.
+
+Playwright owns its test server on port `3100` and writes Next.js development
+output to `.next-e2e/`. This keeps browser tests isolated from the normal
+development server and its `.next/` output. A server already using port `3100`
+must be stopped before running the browser tests.

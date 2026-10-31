@@ -21,8 +21,8 @@
     "prepare": "husky",
     "reinstall": "bun run --bun rimraf node_modules && bun install --frozen-lockfile",
     "start": "bun run --bun next start",
-    "test:e2e": "bun run --bun playwright test",
-    "test:e2e:ui": "bun run --bun playwright test --ui",
+    "test:e2e": "bunx playwright test",
+    "test:e2e:ui": "bunx playwright test --ui",
     "type:check": "bun run --bun tsc --noEmit"
   },
   "dependencies": {

@@ -9,8 +9,8 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "bun run dev -- --port 3100",
-    reuseExistingServer: !process.env.CI,
+    command: "PLAYWRIGHT_TEST=1 bun run dev -- --port 3100",
+    reuseExistingServer: false,
     url: "http://localhost:3100",
   },
   projects: [

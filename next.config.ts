@@ -7,6 +7,7 @@ void env;
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
+  distDir: process.env.PLAYWRIGHT_TEST ? ".next-e2e" : ".next",
   partialPrefetching: true,
   reactCompiler: true,
   turbopack: {
