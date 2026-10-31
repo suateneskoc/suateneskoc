@@ -17,7 +17,7 @@
     "format": "bun run --bun prettier --write .",
     "format:check": "bun run --bun prettier --check .",
     "lint": "bun run --bun eslint --max-warnings=0",
-    "knip": "bunx --bun knip --no-progress",
+    "knip": "SKIP_ENV_VALIDATION=1 bunx --bun knip --no-progress",
     "prepare": "husky",
     "reinstall": "bun run --bun rimraf node_modules && bun install --frozen-lockfile",
     "start": "bun run --bun next start",

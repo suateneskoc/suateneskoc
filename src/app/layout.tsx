@@ -27,7 +27,7 @@ const themeScript = `
 `;
 
 export const metadata: Metadata = {
-  title: "Suate Nes Koc",
+  title: "Enes Koc",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

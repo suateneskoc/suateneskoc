@@ -9,9 +9,7 @@ test.describe("homepage", () => {
   test("loads", async ({ page }) => {
     await page.goto("/");
 
-    await expect(
-      page.getByRole("heading", { name: "Suate Nes Koc" }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Enes Koc" })).toBeVisible();
     await expect(
       page.getByRole("link", { name: "Read the posts" }),
     ).toBeVisible();

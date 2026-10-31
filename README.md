@@ -1,4 +1,4 @@
-# Suate Nes Koc
+# Enes Koc
 
 Personal blog built with Next.js, React, Tailwind CSS, and Bun.
 
